@@ -25,6 +25,8 @@
   $> cd /你的工程目录
   $> ./ngrok http 8080
 ```
+    {% comment %} <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" media="none"> {% endcomment %}
+    {% comment %} <link href="css/style.css" rel="stylesheet"> {% endcomment %}
 
 1. 复制ngrok提供给你的公共URL，然后尝试通过PageSpeed Insights访问它吧！可选阅读：[更多关于整合ngrok、Grunt和PageSpeed的信息](http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/)。
 
