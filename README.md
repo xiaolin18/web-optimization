@@ -1,4 +1,31 @@
-## 网站性能优化项目
+# 网站性能优化项目
+
+## 优化 index.html 的 PageSpeed Insights 得分
+
+### Installation
+- yarn
+
+### Usage
+- gulp default 压缩文件
+- yarn start 启动项目
+- yarn watch 使本地服务器可以被远程访问
+
+### 优化步骤
+- CSS内联方式
+- 使用在线压缩工具压缩图片
+- JS异步
+- gulp压缩引入的html文件
+- 媒体查询print.css
+- 字体引入修改
+
+## 优化 pizza.html 的 FPS（每秒帧数）
+- updatePositions 移出scrollTop
+- changePizzaSizes
+- 减少pizzas数量
+
+
+
+### 优达学城原本提示
 
 你要做的是尽可能优化这个在线项目的速度。注意，请应用你之前在[网站性能优化课程](https://cn.udacity.com/course/website-performance-optimization--ud884/)中学习的技术来优化关键渲染路径并使这个页面尽可能快的渲染。
 

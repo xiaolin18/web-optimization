@@ -1,0 +1,57 @@
+Arguments: 
+  /Users/xiaolin/.nvm/versions/node/v6.3.0/bin/node /Users/xiaolin/.nvm/versions/node/v6.3.0/bin/yarn add gulp
+
+PATH: 
+  /Users/xiaolin/bin:/Users/xiaolin/.nvm/versions/node/v6.3.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  0.27.5
+
+Node version: 
+  6.3.0
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "name": "web-optimization",
+    "version": "1.0.0",
+    "description": "你要做的是尽可能优化这个在线项目的速度。注意，请应用你之前在[网站性能优化课程](https://cn.udacity.com/course/website-performance-optimization--ud884/)中学习的技术来优化关键渲染路径并使这个页面尽可能快的渲染。",
+    "main": "index.js",
+    "scripts": {
+      "start": "http-server -p 8000 -c 10 -g",
+      "watch": "./ngrok http 8000"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/xiaolin18/web-optimization.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/xiaolin18/web-optimization/issues"
+    },
+    "homepage": "https://github.com/xiaolin18/web-optimization#readme",
+    "devDependencies": {
+      "gulp": "^3.9.1",
+      "gulp-changed": "^3.2.0",
+      "gulp-htmlmin": "^4.0.0",
+      "gulp-jscs": "^4.1.0",
+      "gulp-minify-css": "^1.2.4",
+      "gulp-uglify": "^3.0.0",
+      "http-server": "^0.10.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: http://npm-registry.iyunxiao.com/gulp-changed: ETIMEDOUT
+      at Timeout._onTimeout (/Users/xiaolin/.nvm/versions/node/v6.3.0/lib/node_modules/yarn/node_modules/request/request.js:852:19)
+      at tryOnTimeout (timers.js:224:11)
+      at Timer.listOnTimeout (timers.js:198:5)

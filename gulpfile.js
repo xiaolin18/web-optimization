@@ -34,8 +34,6 @@ gulp.task('minihtml', function() {
         .pipe(gulp.dest('dist/html'));
 });
 
-gulp.task('default', function() {  
+gulp.task('default', function() {
     gulp.start('minifyjs', 'minifycss', 'minihtml');
 });
-
-

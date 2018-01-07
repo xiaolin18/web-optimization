@@ -446,10 +446,12 @@ var resizePizzas = function(size) {
 
   // 遍历披萨的元素并改变它们的宽度
   function changePizzaSizes(size) {
-    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
-      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+    // 减少节点调用
+    var randomPizzaContainers = document.querySelectorAll(".randomPizzaContainer");
+    for (var i = 0; i < randomPizzaContainers.length; i++) {
+      var dx = determineDx(randomPizzaContainers[i], size);
+      var newwidth = (randomPizzaContainers[i].offsetWidth + dx) + 'px';
+      randomPizzaContainers[i].style.width = newwidth;
     }
   }
 
@@ -499,8 +501,10 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   var items = document.querySelectorAll('.mover');
+  // 获取scrollTop的值，兼容各大浏览器，依次是IE、safari、chrome
+  var scrollTop =  window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+
   for (var i = 0; i < items.length; i++) {
-    var scrollTop =  window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
     var phase = Math.sin((scrollTop / 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
@@ -522,7 +526,8 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+  // 缩减生成的Pizzas数量
+  for (var i = 0; i < 50; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
