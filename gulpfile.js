@@ -29,7 +29,7 @@ gulp.task('minihtml', function() {
         // minifyJs: true,//压缩页面JS
         // minifyCSS: true//压缩页面CSS
     };
-    gulp.src(['html/*.html', '*.html'])
+    gulp.src(['html/*.html', 'views/*.html'])
         .pipe(htmlmin(options))
         .pipe(gulp.dest('dist/html'));
 });

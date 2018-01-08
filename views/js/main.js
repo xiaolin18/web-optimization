@@ -446,13 +446,33 @@ var resizePizzas = function(size) {
 
   // 遍历披萨的元素并改变它们的宽度
   function changePizzaSizes(size) {
-    // 减少节点调用
-    var randomPizzaContainers = document.querySelectorAll(".randomPizzaContainer");
-    for (var i = 0; i < randomPizzaContainers.length; i++) {
-      var dx = determineDx(randomPizzaContainers[i], size);
-      var newwidth = (randomPizzaContainers[i].offsetWidth + dx) + 'px';
-      randomPizzaContainers[i].style.width = newwidth;
+    // determineDx函数没有实际意义，故直接使用百分比的形式
+    var newWidth;
+    switch(size) {
+      case "1":
+        newWidth = 25;
+        break;
+      case "2":
+        newWidth = 33.3;
+        break;
+      case "3":
+        newWidth = 50;
+        break;
+      default:
+        console.log("bug in sizeSwitcher");
     }
+    // 减少节点调用同时把querySelectorAll修改为getElementsByClassName一定程度上提高了性能
+    var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
+    for (var i = 0; i < randomPizzas.length; i++) {
+      randomPizzas[i].style.width = newWidth + "%";
+    }
+    // 减少节点调用
+    // var randomPizzaContainers = document.querySelectorAll(".randomPizzaContainer");
+    // for (var i = 0; i < randomPizzaContainers.length; i++) {
+    //   var dx = determineDx(randomPizzaContainers[i], size);
+    //   var newwidth = (randomPizzaContainers[i].offsetWidth + dx) + 'px';
+    //   randomPizzaContainers[i].style.width = newwidth;
+    // }
   }
 
   changePizzaSizes(size);
@@ -498,9 +518,10 @@ function logAverageFrame(times) {   // times参数是updatePositions()由User Ti
 // 基于滚动条位置移动背景中的披萨滑窗
 function updatePositions() {
   frame++;
+  // 为相应的视点做标记
   window.performance.mark("mark_start_frame");
-
-  var items = document.querySelectorAll('.mover');
+  // 将querySelectorAll替换为getElementsByClassName
+  var items = document.getElementsByClassName('.mover');
   // 获取scrollTop的值，兼容各大浏览器，依次是IE、safari、chrome
   var scrollTop =  window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
 
@@ -524,11 +545,18 @@ window.addEventListener('scroll', updatePositions);
 
 // 当页面加载时生成披萨滑窗
 document.addEventListener('DOMContentLoaded', function() {
+  // 获取浏览器窗口高度
+  var scrollHeigtht = document.body.scrollHeight;
   var cols = 8;
   var s = 256;
+  // 需要的pizzas行数
+  var rows = scrollHeigtht/s;
+  // 需要的pizzas总数
+  var total = cols * rows > 30 ? 30 : cols * rows;
+  var elem;
   // 缩减生成的Pizzas数量
-  for (var i = 0; i < 50; i++) {
-    var elem = document.createElement('img');
+  for (var i = 0; i < total; i++) {
+    elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";

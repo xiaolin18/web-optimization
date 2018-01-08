@@ -12,7 +12,7 @@
 
 ### 优化步骤
 - CSS内联方式
-- 使用在线压缩工具压缩图片
+- 使用在线压缩工具压缩图片:https://www.reduceimages.com/
 - JS异步
 - gulp压缩引入的html文件
 - 媒体查询print.css
