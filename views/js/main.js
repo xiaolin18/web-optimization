@@ -521,7 +521,7 @@ function updatePositions() {
   // 为相应的视点做标记
   window.performance.mark("mark_start_frame");
   // 将querySelectorAll替换为getElementsByClassName
-  var items = document.getElementsByClassName('.mover');
+  var items = document.getElementsByClassName('mover');
   // 获取scrollTop的值，兼容各大浏览器，依次是IE、safari、chrome
   var scrollTop =  window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
 
@@ -552,13 +552,13 @@ document.addEventListener('DOMContentLoaded', function() {
   // 需要的pizzas行数
   var rows = scrollHeigtht/s;
   // 需要的pizzas总数
-  var total = cols * rows > 30 ? 30 : cols * rows;
+  var total = cols * rows > 100 ? 100 : cols * rows;
   var elem;
   // 缩减生成的Pizzas数量
   for (var i = 0; i < total; i++) {
     elem = document.createElement('img');
     elem.className = 'mover';
-    elem.src = "images/pizza.png";
+    elem.src = "images/pizza-min.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
