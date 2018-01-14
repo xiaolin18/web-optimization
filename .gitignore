@@ -1,4 +1,7 @@
-dist
+css-min
+html-min
+img-min
+js-min
 node_modules
 .DS_Store
 .vscode/

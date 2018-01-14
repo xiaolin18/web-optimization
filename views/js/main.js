@@ -375,7 +375,7 @@ var pizzaElementGenerator = function(i) {
   pizzaContainer.id = "pizza" + i;                // 给每个披萨元素赋一个独一无二的id
   pizzaImageContainer.style.width="35%";
 
-  pizzaImage.src = "images/pizza.png";
+  pizzaImage.src = "../img-min/pizza-min.png";
   pizzaImage.classList.add("img-responsive");
   pizzaImageContainer.appendChild(pizzaImage);
   pizzaContainer.appendChild(pizzaImageContainer);
@@ -558,7 +558,7 @@ document.addEventListener('DOMContentLoaded', function() {
   for (var i = 0; i < total; i++) {
     elem = document.createElement('img');
     elem.className = 'mover';
-    elem.src = "images/pizza-min.png";
+    elem.src = "../img-min/pizza-min.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;

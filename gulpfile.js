@@ -7,18 +7,18 @@ var gulp = require('gulp'),
     minifyCSS = require('gulp-minify-css');
 
 gulp.task('minifyjs', function() {
-    gulp.src('js/*.js')
+    gulp.src(['js/*.js', 'views/js/*.js'])
         .pipe(uglify())
-        .pipe(gulp.dest('dist/js'));
+        .pipe(gulp.dest('js-min'));
 });
 
 gulp.task('minifycss', function () {
     // 1. 找到文件
-    gulp.src('css/*.css')
+    gulp.src(['css/*.css', 'views/css/*.css'])
     // 2. 压缩文件
         .pipe(minifyCSS())
     // 3. 另存为压缩文件
-        .pipe(gulp.dest('dist/css'));
+        .pipe(gulp.dest('css-min'));
 });
 
 gulp.task('images', function() {
@@ -28,7 +28,7 @@ gulp.task('images', function() {
              progressive: true,
              interlaced: true
          })))
-         .pipe(gulp.dest('dist/images'))
+         .pipe(gulp.dest('img-min'))
          .pipe(notify({
             message: 'Images task complete'
          }));
@@ -47,7 +47,7 @@ gulp.task('minihtml', function() {
     };
     gulp.src(['html/*.html', 'views/*.html'])
         .pipe(htmlmin(options))
-        .pipe(gulp.dest('dist/html'));
+        .pipe(gulp.dest('html-min'));
 });
 
 gulp.task('default', function() {
