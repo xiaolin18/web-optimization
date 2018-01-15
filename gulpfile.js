@@ -22,7 +22,7 @@ gulp.task('minifycss', function () {
 });
 
 gulp.task('images', function() {
-     return gulp.src(['views/images/*', 'img/*'])
+     return gulp.src(['views/images/*.*', 'img/*.*'])
         .pipe(cache(imagemin({
              optimizationLevel: 3,
              progressive: true,
